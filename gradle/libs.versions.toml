@@ -35,7 +35,7 @@ lifecycleViewmodelKtx = "2.8.7"
 threetenabp = "1.4.7"
 workRuntimeKtx = "2.9.0"
 vico = "2.0.0-alpha.5"
-slf4j-simple = "2.0.9"
+slf4j-simple = "2.0.17"
 log4j-core = "2.20.0"
 poi = "5.2.3"
 
