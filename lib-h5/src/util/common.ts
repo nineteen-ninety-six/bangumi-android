@@ -132,18 +132,14 @@ const scrollIntoView = (event: Event, container: Element | undefined | null, isM
  * @param replyContent
  */
 const optReplyContent = (userName: string, replyContent: string): string => {
-    let previousContent;
-    let reply_to_content = replyContent;
-    do {
-        previousContent = reply_to_content;
-        reply_to_content = reply_to_content
-            .replace(/<div class="quote">([^^]*?)<\/div>/g, '')
-            .replace(/<span class="text_mask" style="([^^]*?)">([^^]*?)<\/span>/g, '')
-            .replace(/<\/?[^>]+>/g, '')
-            .replace(/&lt;/g, '<')
-            .replace(/&gt;/g, '>')
-            .replace(/\B@([^\W_]\w*)\b/g, '＠$1');
-    } while (reply_to_content !== previousContent);
+    const sanitizeHtml = require("sanitize-html");
+    let reply_to_content = sanitizeHtml(replyContent, {
+        allowedTags: [], // Remove all HTML tags
+        allowedAttributes: {}, // Remove all attributes
+    });
+
+    reply_to_content = reply_to_content
+        .replace(/\B@([^\W_]\w*)\b/g, '＠$1'); // Replace mentions
 
     if (reply_to_content.length > 100) {
         reply_to_content = reply_to_content.slice(0, 100) + '...';
