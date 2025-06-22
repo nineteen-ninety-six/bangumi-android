@@ -9,6 +9,7 @@
     <string name="common_error_tip">ごめん，Bangumi娘找不到数据了</string>
     <string name="common_empty_tip">ごめん，暂时没有数据呢</string>
     <string name="common_search">搜索</string>
+    <string name="common_clear">清空</string>
     <string name="common_filter">过滤</string>
     <string name="common_copy_success">复制成功</string>
     <string name="common_input_hint">输入内容...</string>
