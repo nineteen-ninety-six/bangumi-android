@@ -86,6 +86,10 @@ class SearchActivity : BaseViewModelActivity<ActivitySearchBinding, SearchViewMo
             RouteHelper.jumpSearchDetail(it)
             finish()
         }
+
+        binding.tvClear.setOnFastLimitClickListener {
+            viewModel.clearSearchHistory()
+        }
     }
 
     override fun LifecycleOwner.initViewObserver() {
@@ -108,6 +112,7 @@ class SearchActivity : BaseViewModelActivity<ActivitySearchBinding, SearchViewMo
         viewModel.onSearchRecentlyLiveData.observe(this) {
             binding.rvRecently.isVisible = it.isNullOrEmpty().not()
             binding.tvTitleRecently.isVisible = it.isNullOrEmpty().not()
+            binding.tvClear.isVisible = it.isNullOrEmpty().not()
             binding.dividerRecently.isVisible = it.isNullOrEmpty().not()
             recentlyItemAdapter.submitList(it)
         }
