@@ -1,5 +1,5 @@
 [versions]
-agp = "8.10.1"
+agp = "8.11.0"
 blueprint = "1.1.52"
 coreSplashscreen = "1.0.1"
 ffmpegKitMin = "6.0-2"
