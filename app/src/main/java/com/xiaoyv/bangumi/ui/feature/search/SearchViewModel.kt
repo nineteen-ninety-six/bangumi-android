@@ -131,4 +131,16 @@ class SearchViewModel : BaseViewModel() {
     fun switchSearchType(searchItem: SearchItem?) {
         currentSearchItem.value = searchItem
     }
+
+    /**
+     * 清除搜索历史
+     */
+    fun clearSearchHistory() {
+        launchUI {
+            withContext(Dispatchers.IO) {
+                CacheHelper.clearSearchHistory()
+            }
+            onSearchRecentlyLiveData.value = null
+        }
+    }
 }

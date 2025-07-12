@@ -56,6 +56,15 @@ object CacheHelper {
     }
 
     /**
+     * 清除搜索历史
+     */
+    fun clearSearchHistory() {
+        launchProcess {
+            SPUtils.getInstance(KEY_CACHE_HISTORY).clear()
+        }
+    }
+
+    /**
      * 缓存翻译结果
      */
     fun saveTranslate(cacheKey: String, text: String) {
